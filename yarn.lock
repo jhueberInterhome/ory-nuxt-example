@@ -1419,12 +1419,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ory/client@npm:1.8.1":
-  version: 1.8.1
-  resolution: "@ory/client@npm:1.8.1"
+"@ory/client@npm:1.6.1":
+  version: 1.6.1
+  resolution: "@ory/client@npm:1.6.1"
   dependencies:
     axios: "npm:^1.6.1"
-  checksum: 10c0/343dfd29ff7608e1d4848b6d0a6eeeae82b6d1601e08aa12a8df45aad695a1a81f99581ec80485cb3bd1aa29070497f038bacee4579be6465cd65dc7f0d12f61
+  checksum: 10c0/d9679f0f56aee8e674b25d6edaf084d97c645f73058868782f71a647df9cedb7a54b7365eacc347c85598bb98c09a8dc3dd692e7825064df395e0b97b06bdfa1
   languageName: node
   linkType: hard
 
@@ -7750,7 +7750,7 @@ __metadata:
     "@nuxt/devtools": "npm:1.0.8"
     "@nuxtjs/eslint-config-typescript": "npm:^12.1.0"
     "@nuxtjs/tailwindcss": "npm:6.11.4"
-    "@ory/client": "npm:1.8.1"
+    "@ory/client": "npm:1.6.1"
     "@pinia/nuxt": "npm:0.5.1"
     "@tailwindcss/forms": "npm:^0.5.7"
     "@tailwindcss/typography": "npm:^0.5.10"
@@ -7762,6 +7762,7 @@ __metadata:
     nuxt: "npm:3.10.3"
     prettier: "npm:3.2.5"
     prettier-plugin-tailwindcss: "npm:0.5.12"
+    typescript: "npm:^5.4.2"
   languageName: unknown
   linkType: soft
 
@@ -10070,6 +10071,26 @@ __metadata:
     is-typed-array: "npm:^1.1.13"
     possible-typed-array-names: "npm:^1.0.0"
   checksum: 10c0/5cc0f79196e70a92f8f40846cfa62b3de6be51e83f73655e137116cf65e3c29a288502b18cc8faf33c943c2470a4569009e1d6da338441649a2db2f135761ad5
+  languageName: node
+  linkType: hard
+
+"typescript@npm:^5.4.2":
+  version: 5.4.2
+  resolution: "typescript@npm:5.4.2"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 10c0/583ff68cafb0c076695f72d61df6feee71689568179fb0d3a4834dac343df6b6ed7cf7b6f6c801fa52d43cd1d324e2f2d8ae4497b09f9e6cfe3d80a6d6c9ca52
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@npm%3A^5.4.2#optional!builtin<compat/typescript>":
+  version: 5.4.2
+  resolution: "typescript@patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>::version=5.4.2&hash=5adc0c"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 10c0/fcf6658073d07283910d9a0e04b1d5d0ebc822c04dbb7abdd74c3151c7aa92fcddbac7d799404e358197222006ccdc4c0db219d223d2ee4ccd9e2b01333b49be
   languageName: node
   linkType: hard
 
