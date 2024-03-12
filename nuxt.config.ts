@@ -12,12 +12,25 @@ export default defineNuxtConfig({
     dirs: ['composables/**', 'plugins/**'],
   },
 
-  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt'],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    '@nuxt/test-utils/module',
+    '@pinia/nuxt',
+    'nuxt-icons',
+    '@vueuse/nuxt',
+    'nuxt-headlessui',
+    'floating-vue/nuxt',
+    '@nuxtjs/web-vitals',
+  ],
 
   runtimeConfig: {
     public: {
       oryApiURL: '',
     },
+  },
+
+  webVitals: {
+    provider: 'gtm',
   },
 
   typescript: {

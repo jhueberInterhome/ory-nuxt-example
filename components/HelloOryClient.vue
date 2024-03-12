@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="max-w-xl">
     <h1>Ory Test A</h1>
 
     <div v-if="!sessionGW">
@@ -23,6 +23,7 @@
         <a :href="basePath + '/ui/settings'" data-testid="settings">Settings</a>
       </li>
     </ul>
+    {{ sessionGW }}
   </div>
 </template>
 
