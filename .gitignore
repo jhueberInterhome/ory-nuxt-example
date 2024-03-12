@@ -1,6 +1,5 @@
 # Nuxt dev/build outputs
 .output
-.data
 .nuxt
 .nitro
 .cache
@@ -17,8 +16,18 @@ logs
 .DS_Store
 .fleet
 .idea
+.vscode/launch.json
+.eslintcache
 
 # Local env files
 .env
 .env.*
 !.env.example
+
+.tool-versions
+
+allure-results/
+reports/
+
+# Yarn
+.pnp.*
