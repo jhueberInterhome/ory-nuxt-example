@@ -8,7 +8,6 @@ export default defineEventHandler(async (event) => {
 
   const config = useRuntimeConfig()
   const basePath = config.public.oryApi
-  const header = getRequestHeaders(event)
   const ory = new FrontendApi(
     new Configuration({
       basePath,
@@ -25,7 +24,7 @@ export default defineEventHandler(async (event) => {
       params: QueryObject
       path: string
     }
-    res?: Session | undefined
+    res?: RecoveryFlowData | undefined
   } = {}
 
   // Add meta values for development and debug purposes
@@ -38,13 +37,12 @@ export default defineEventHandler(async (event) => {
   }
 
   await ory
-    .toSession(header)
+    .createBrowserRecoveryFlow()
     .then(({ data }) => {
       result.res = data
     })
-    .catch(() => {
-      // If logged out, send to login page
-      console.log('No session there')
+    .catch((error) => {
+      console.error('Error while getting recovery flow: ', error)
       result.res = undefined
     })
 

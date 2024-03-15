@@ -32,7 +32,7 @@ import { FrontendApi, Configuration } from '@ory/client'
 
 const basePath = 'http://localhost:4000'
 
-const sessionGW: Ref<SessionGW | null> = ref(null)
+const sessionGW: Ref<Session | null> = ref(null)
 
 const logoutUrl: Ref<string> = ref('')
 

@@ -5,10 +5,12 @@ export default defineEventHandler(async (event) => {
   const host = getRequestHost(event)
   const params = getQuery(event)
   const path = event.context.params!._
+  const body = await readBody(event)
+  const flow = event.context.params!.id
 
   const config = useRuntimeConfig()
   const basePath = config.public.oryApi
-  const header = getRequestHeaders(event)
+  // const header = getRequestHeaders(event)
   const ory = new FrontendApi(
     new Configuration({
       basePath,
@@ -25,7 +27,7 @@ export default defineEventHandler(async (event) => {
       params: QueryObject
       path: string
     }
-    res?: Session | undefined
+    res?: LoginResponse | undefined
   } = {}
 
   // Add meta values for development and debug purposes
@@ -37,16 +39,28 @@ export default defineEventHandler(async (event) => {
     }
   }
 
+  const loginFlowBody = {
+    flow,
+    updateLoginFlowBody: body,
+    // cookie: header.cookie,
+  }
+
+  console.log('loginFlowBody: ', loginFlowBody)
+
   await ory
-    .toSession(header)
+    .updateLoginFlow(loginFlowBody)
     .then(({ data }) => {
       result.res = data
     })
-    .catch(() => {
+    .catch((error) => {
       // If logged out, send to login page
-      console.log('No session there')
-      result.res = undefined
+      console.error('Error while sending the login request: ', error)
+      result.res = error
     })
+
+  // Set the cookie and the csrf token
+  // TODO: implement
+  console.log('session is: ', result.res)
 
   return result
 })

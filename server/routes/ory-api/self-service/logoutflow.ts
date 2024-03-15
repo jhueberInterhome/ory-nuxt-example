@@ -25,7 +25,7 @@ export default defineEventHandler(async (event) => {
       params: QueryObject
       path: string
     }
-    res?: Session | undefined
+    res?: LogoutFlowData | undefined
   } = {}
 
   // Add meta values for development and debug purposes
@@ -38,13 +38,12 @@ export default defineEventHandler(async (event) => {
   }
 
   await ory
-    .toSession(header)
+    .createBrowserLogoutFlow(header)
     .then(({ data }) => {
       result.res = data
     })
-    .catch(() => {
-      // If logged out, send to login page
-      console.log('No session there')
+    .catch((error) => {
+      console.error('Error while getting logout out flow: ', error)
       result.res = undefined
     })
 

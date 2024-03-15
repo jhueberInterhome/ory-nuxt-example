@@ -24,9 +24,34 @@ export default defineNuxtConfig({
   ],
 
   runtimeConfig: {
+    webccApiUrl: '',
+    confApiUrl: '',
+
     public: {
-      oryApiURL: '',
+      oryApi: '',
+      iframeUrl: '',
+      sentry: {
+        enabled: true,
+        release: '' || 'release-' + Date.now(),
+        org: '',
+        project: '',
+        dsn: '',
+        environment: '',
+      },
+      environment: process.env.K8S_NAMESPACE || 'LOCAL',
     },
+  },
+
+  headlessui: {
+    prefix: 'Headless',
+  },
+  $test: {
+    runtimeConfig: {
+      test: true,
+    },
+  },
+  build: {
+    transpile: ['@vuepic/vue-datepicker'],
   },
 
   webVitals: {
@@ -35,5 +60,10 @@ export default defineNuxtConfig({
 
   typescript: {
     shim: false,
+  },
+
+  sourcemap: {
+    server: true,
+    client: true,
   },
 })

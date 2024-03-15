@@ -31,3 +31,10 @@ reports/
 
 # Yarn
 .pnp.*
+.yarn/*
+!.yarn/.gitkeep
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

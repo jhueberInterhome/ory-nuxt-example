@@ -26,19 +26,17 @@
 </template>
 
 <script lang="ts" setup>
-const sessionGW: Ref<SessionGW | undefined> = ref()
+const sessionGW: Ref<Session | undefined> = ref()
 // const logoutData: Ref<LogoutData | undefined> = ref()
 const logoutUrl: Ref<string> = ref('')
 
-// const basePath = 'https://sleepy-ganguly-eryl1pdqer.projects.oryapis.com'
 // const basePath = 'http://localhost:4000'
 const config = useRuntimeConfig()
 const basePath = config.public.oryApi
 
-const ory = useOry()
-const headers = useRequestHeaders(['cookie'])
+const ory = useAuth()
 
-sessionGW.value = await ory.loadSession(headers)
+sessionGW.value = ory.session
 
 console.log('sessionGW', sessionGW.value)
 

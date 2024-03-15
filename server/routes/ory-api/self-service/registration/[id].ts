@@ -5,6 +5,8 @@ export default defineEventHandler(async (event) => {
   const host = getRequestHost(event)
   const params = getQuery(event)
   const path = event.context.params!._
+  const body = await readBody(event)
+  const flow = event.context.params!.id
 
   const config = useRuntimeConfig()
   const basePath = config.public.oryApi
@@ -25,7 +27,7 @@ export default defineEventHandler(async (event) => {
       params: QueryObject
       path: string
     }
-    res?: Session | undefined
+    res?: RegistrationResponse | undefined
   } = {}
 
   // Add meta values for development and debug purposes
@@ -37,8 +39,14 @@ export default defineEventHandler(async (event) => {
     }
   }
 
+  const registerFlowBody = {
+    flow,
+    updateRegistrationFlowBody: body,
+    cookie: header.cookie,
+  }
+
   await ory
-    .toSession(header)
+    .updateRegistrationFlow(registerFlowBody)
     .then(({ data }) => {
       result.res = data
     })
