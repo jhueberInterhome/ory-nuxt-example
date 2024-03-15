@@ -1,10 +1,10 @@
 <template>
-  <div class="bg-bgr-100 px-8 py-6 rounded-lg mx-aut flex flex-col items-center">
-    <h1>Login</h1>
-    <form class="flex flex-col w-full" @submit.prevent="submit">
-      <input type="text" class="rounded-lg border-2 border-bgr-200 p-2 my-2" placeholder="Username" />
-      <input type="password" class="rounded-lg border-2 border-bgr-200 p-2 my-2" placeholder="Password" />
-      <button type="submit" class="bg-bgr-300 text-white rounded-lg p-2 my-2">Login</button>
+  <div class="bg-slate-50 px-8 py-6 rounded-lg mx-auto mt-20 flex flex-col items-center max-w-md">
+    <h1 class="font-bold text-4xl text-emerald-800">Login</h1>
+    <form class="flex flex-col w-full mt-10" @submit.prevent="submit">
+      <input type="text" class="rounded-lg border-2 border-slate-200 p-2 my-2" placeholder="Username" />
+      <input type="password" class="rounded-lg border-2 border-slate-200 p-2 my-2" placeholder="Password" />
+      <button type="submit" class="bg-emerald-500 text-white rounded-lg p-2 my-2">Login</button>
     </form>
   </div>
 </template>
